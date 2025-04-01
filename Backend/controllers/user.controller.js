@@ -5,6 +5,12 @@ import jwt from "jsonwebtoken";
 export const register = async (req, res) => {
   try {
     const { fullName, email, password, phoneNumber, role } = req.body;
+    console.log("🚀 ~ register ~ fullName:", fullName);
+    console.log("🚀 ~ register ~ role:", role);
+    console.log("🚀 ~ register ~ phoneNumber:", phoneNumber);
+    console.log("🚀 ~ register ~ password:", password);
+    console.log("🚀 ~ register ~ email:", email);
+
     if (!fullName || !email || !password || !phoneNumber || !role) {
       return res.status(400).json({
         message: "Something is missing",
@@ -28,7 +34,7 @@ export const register = async (req, res) => {
     });
     return res.status(200).json({
       message: "User created Successfully",
-      success: false,
+      success: true,
     });
   } catch (error) {
     console.log(error);
